@@ -14,7 +14,7 @@ public class EnemyHealth : MonoBehaviour
         if(hitPoints <= 0)
         {
             Debug.Log("Hit points are <= 0 so " + name + "died");
-            gameObject.SetActive(false);
+            Destroy(gameObject);
         }
     }
 
