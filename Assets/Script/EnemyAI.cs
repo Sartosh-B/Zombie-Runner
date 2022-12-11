@@ -13,6 +13,9 @@ public class EnemyAI : MonoBehaviour
     NavMeshAgent navMeshAgent;
     float distanceTarget = Mathf.Infinity;
     bool isProvoked = false;
+
+    // 1. Checking is the enemy provoked - is the player in enemy chaseRange
+    // 2. 
     
     void Start()
     {
@@ -48,11 +51,14 @@ public class EnemyAI : MonoBehaviour
 
     private void AttackTarget()
     {
+        GetComponent<Animator>().SetBool("attack", true);
         Debug.Log(name + "has Attacked " + target.name);
     }
 
     private void ChaseTarget()   // method that set destination of navmesh agent to chase the player 
     {
+        GetComponent<Animator>().SetBool("attack", false);
+        GetComponent<Animator>().SetTrigger("move");
         navMeshAgent.SetDestination(target.position);
     }
 
