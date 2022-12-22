@@ -329,7 +329,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8b47eb58495e4f47a3d1715322e9bc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ammoAmmount: 10
+  ammoSlots:
+  - ammoType: 0
+    ammoAmount: 10
+  - ammoType: 1
+    ammoAmount: 10
+  - ammoType: 2
+    ammoAmount: 10
 --- !u!114 &4956644096101735800
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -477,6 +483,10 @@ PrefabInstance:
       propertyPath: ammoSlot
       value: 
       objectReference: {fileID: 282987656056353494}
+    - target: {fileID: 5391908556522556475, guid: ada2587319194f542957a8c2ae277cb9, type: 3}
+      propertyPath: ammoType
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ada2587319194f542957a8c2ae277cb9, type: 3}
 --- !u!4 &7959909319015304766 stripped
@@ -625,6 +635,10 @@ PrefabInstance:
       propertyPath: ammoSlot
       value: 
       objectReference: {fileID: 282987656056353494}
+    - target: {fileID: 5391908556522556475, guid: 18f9114318be26347aa3cb5e644730fc, type: 3}
+      propertyPath: ammoType
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 18f9114318be26347aa3cb5e644730fc, type: 3}
 --- !u!4 &5791339750069536433 stripped

@@ -15,14 +15,26 @@ public class Ammo : MonoBehaviour
     }
 
 
-    public int GetCurrentAmmo()
+    public int GetCurrentAmmo(AmmoType ammoType)
     {
-        return ammoAmmount;
+        
+        return GetAmmoSlot(ammoType).ammoAmount;
     }
 
-    public void ReduceCurrentAmmo()
+    public void ReduceCurrentAmmo(AmmoType ammoType)
     {
-        ammoAmmount--;
+        GetAmmoSlot(ammoType).ammoAmount--;
     }
 
+    private AmmoSlot GetAmmoSlot(AmmoType ammoType)
+    {
+        foreach (AmmoSlot slot in ammoSlots)
+        {
+            if(slot.ammoType == ammoType)
+            {
+                return slot;
+            }
+        }
+        return null;
+    }
 }

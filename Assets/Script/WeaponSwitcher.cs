@@ -8,6 +8,7 @@ public class WeaponSwitcher : MonoBehaviour
 
     [SerializeField] int currentWeapon = 0;
 
+    
 
     private void Start()
     {
@@ -22,7 +23,7 @@ public class WeaponSwitcher : MonoBehaviour
         ProcessScrollWheel();
 
         if (previousWeapon != currentWeapon)
-        {
+        {           
             SetWeaponActive();
         }
     }
