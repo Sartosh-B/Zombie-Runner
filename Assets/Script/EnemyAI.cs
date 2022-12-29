@@ -11,8 +11,11 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] float turnSpeed = 5f;
     
     NavMeshAgent navMeshAgent;
+    EnemyHealth health;   
+
     float distanceTarget = Mathf.Infinity;
     bool isProvoked = false;
+    
 
     // 1. Checking is the enemy provoked - is the player in enemy chaseRange
     // 2. 
@@ -20,10 +23,16 @@ public class EnemyAI : MonoBehaviour
     void Start()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
+        health = GetComponent<EnemyHealth>();
     }
    
     void Update()
     {
+        if (health.IsDead())
+        {
+            this.enabled = false;
+            navMeshAgent.enabled = false;
+        }
         distanceTarget = Vector3.Distance(target.position, transform.position);
 
         if (isProvoked)
@@ -39,9 +48,10 @@ public class EnemyAI : MonoBehaviour
     {
         isProvoked = true;
     }
-
+   
     private void EngageTarget()
     {
+        
         FaceTarget();
         if (distanceTarget >= navMeshAgent.stoppingDistance)
         {            
